@@ -23,16 +23,26 @@ let num2 = ''
 let operator = ''
 
 function operate (num1, operator, num2) {
+    let result = ''
+    
     if (operator === '+') {
-        return add(num1, num2)
+        result = add(num1, num2)
     } else if (operator === '-') {
-        return subtract(num1, num2)
+        result = subtract(num1, num2)
     } else if (operator === '*') {
-        return multiply(num1, num2)
+        result = multiply(num1, num2)
     } else if (operator === '/') {
-        return divide(num1, num2)
+        result = divide(num1, num2)
     } else return "ERROR"
+
+
+    if (result === "You cannot divide by 0!") {
+        return result
+    }
+
+    return Math.round(result * 10000) / 10000
 }
+
 
 
 const num_btn = document.querySelectorAll(".number")
@@ -59,8 +69,8 @@ operator_btn.forEach((button) => {
         let operator_text = button.textContent
 
         if (num1 !== '' && num2 !== '') {
-            let result = operate(num1 * 1, operator, num2 * 1)
-            num1 = result
+            let operation_result = operate(num1 * 1, operator, num2 * 1)
+            num1 = operation_result
             screen.textContent = num1
             num2 = ''
         } 
