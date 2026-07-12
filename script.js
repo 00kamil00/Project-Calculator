@@ -11,7 +11,11 @@ function multiply (num1, num2) {
 }
 
 function divide (num1, num2) {
-    return num1 / num2
+    if (num2 === 0) {
+        return "You cannot divide by 0!"
+    } else {
+        return num1 / num2
+    }
 }
 
 let num1 = ''
@@ -36,11 +40,31 @@ const screen = document.querySelector(".screen")
 
 num_btn.forEach((button) => {
     button.addEventListener("click", () => {
-        let clicked_num = button.textContent
-        num1 += clicked_num
-        screen.textContent = num1
+        let num_text = button.textContent
+        if (operator === '') {
+            num1 += num_text
+            screen.textContent = num1
+        } else {
+            num2 = num_text
+            screen.textContent = num2
+        }
     })
 })
 
 
+const operator_btn = document.querySelectorAll(".operator")
 
+operator_btn.forEach((button) => {
+    button.addEventListener("click", () => {
+        let operator_text = button.textContent
+        operator = operator_text
+        screen.textContent = operator
+    })
+})
+
+
+const equal_btn = document.querySelector(".equals")
+
+equal_btn.addEventListener("click", () => {
+    screen.textContent = operate(num1 * 1, operator, num2 * 1)
+})
