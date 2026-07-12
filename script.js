@@ -29,3 +29,18 @@ function operate (num1, operator, num2) {
         return divide(num1, num2)
     } else return "ERROR"
 }
+
+
+const num_btn = document.querySelectorAll(".number")
+const screen = document.querySelector(".screen")
+
+num_btn.forEach((button) => {
+    button.addEventListener("click", () => {
+        let clicked_num = button.textContent
+        num1 += clicked_num
+        screen.textContent = num1
+    })
+})
+
+
+
