@@ -84,5 +84,19 @@ operator_btn.forEach((button) => {
 const equal_btn = document.querySelector(".equals")
 
 equal_btn.addEventListener("click", () => {
+
+    if (operator === '' || num2 === '') {
+        return
+    }
     screen.textContent = operate(num1 * 1, operator, num2 * 1)
+})
+
+
+const clear = document.querySelector(".clear")
+
+clear.addEventListener("click", () => {
+    num1 = ''
+    num2 = ''
+    operator = ''
+    screen.textContent = ''
 })
