@@ -37,6 +37,7 @@ function operate (num1, operator, num2) {
 
 
     if (result === "You cannot divide by 0!") {
+        clear_calc()
         return result
     }
 
@@ -92,11 +93,13 @@ equal_btn.addEventListener("click", () => {
 })
 
 
-const clear = document.querySelector(".clear")
 
-clear.addEventListener("click", () => {
+function clear_calc () {
     num1 = ''
     num2 = ''
     operator = ''
     screen.textContent = ''
-})
+}
+
+const clear = document.querySelector(".clear")
+clear.addEventListener("click", clear_calc)
