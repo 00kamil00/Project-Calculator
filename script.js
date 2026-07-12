@@ -57,6 +57,14 @@ const operator_btn = document.querySelectorAll(".operator")
 operator_btn.forEach((button) => {
     button.addEventListener("click", () => {
         let operator_text = button.textContent
+
+        if (num1 !== '' && num2 !== '') {
+            let result = operate(num1 * 1, operator, num2 * 1)
+            num1 = result
+            screen.textContent = num1
+            num2 = ''
+        } 
+        
         operator = operator_text
         screen.textContent = operator
     })
