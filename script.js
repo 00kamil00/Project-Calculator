@@ -21,6 +21,7 @@ function divide (num1, num2) {
 let num1 = ''
 let num2 = ''
 let operator = ''
+let isResultDisplayed = false
 
 function operate (num1, operator, num2) {
     let result = ''
@@ -38,6 +39,7 @@ function operate (num1, operator, num2) {
 
     if (result === "You cannot divide by 0!") {
         clear_calc()
+        isResultDisplayed = true
         return result
     }
 
@@ -52,12 +54,19 @@ const screen = document.querySelector(".screen")
 num_btn.forEach((button) => {
     button.addEventListener("click", () => {
         let num_text = button.textContent
-        if (operator === '') {
-            num1 += num_text
-            screen.textContent = num1
+        if (isResultDisplayed) {
+            clear_calc()
+            num1 = num_text
+            screen.textContent = num_text
+            isResultDisplayed = false
         } else {
-            num2 = num_text
-            screen.textContent = num2
+            if (operator === '') {
+                num1 += num_text
+                screen.textContent = num1
+            } else {
+                num2 += num_text
+                screen.textContent = num2
+            }
         }
     })
 })
@@ -75,7 +84,7 @@ operator_btn.forEach((button) => {
             screen.textContent = num1
             num2 = ''
         } 
-        
+        isResultDisplayed = false
         operator = operator_text
         screen.textContent = operator
     })
@@ -85,6 +94,7 @@ operator_btn.forEach((button) => {
 const equal_btn = document.querySelector(".equals")
 
 equal_btn.addEventListener("click", () => {
+    isResultDisplayed = true
 
     if (operator === '' || num2 === '') {
         return
