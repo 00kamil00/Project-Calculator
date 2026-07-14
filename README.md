@@ -1,8 +1,8 @@
-# 🧮 Modern Slate Calculator
+# 🧮 Modern Calculator
 
 A sleek, interactive, and highly robust web calculator built from scratch as part of **The Odin Project** curriculum. It features a modern dark mode design with a retro LCD-style screen and advanced operation logic to prevent common calculation bugs.
 
-<img width="741" height="914" alt="image" src="https://github.com/user-attachments/assets/c48f70da-b75a-4eca-8a23-cd8d4e15c96a" />
+<img width="450" alt="image" src="https://github.com/user-attachments/assets/c48f70da-b75a-4eca-8a23-cd8d4e15c96a" />
 
 
 ---
