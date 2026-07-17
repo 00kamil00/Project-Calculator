@@ -43,7 +43,7 @@ function operate (num1, operator, num2) {
         return result
     }
 
-    return Math.round(result * 10000) / 10000
+    return Math.round(result * 10000) / 10000 + ""
 }
 
 
@@ -86,7 +86,7 @@ operator_btn.forEach((button) => {
         } 
         isResultDisplayed = false
         operator = operator_text
-        screen.textContent = operator
+        screen.textContent = num1
     })
 })
 
@@ -94,12 +94,14 @@ operator_btn.forEach((button) => {
 const equal_btn = document.querySelector(".equals")
 
 equal_btn.addEventListener("click", () => {
-    isResultDisplayed = true
-
     if (operator === '' || num2 === '') {
         return
     }
-    screen.textContent = operate(num1 * 1, operator, num2 * 1)
+    let operation_result = operate(num1 * 1, operator, num2 * 1)
+    num1 = operation_result
+    screen.textContent = num1
+    num2 = ''
+    isResultDisplayed = true
 })
 
 
